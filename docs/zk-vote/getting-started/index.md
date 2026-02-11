@@ -1,6 +1,6 @@
 ---
 title: 시작하기
-order: 1
+groupOrder: 1
 ---
 
 # ZK 투표 시작하기

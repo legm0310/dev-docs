@@ -64,6 +64,7 @@ body {
   background-color: #f3f4f6;
   color: #1f2937;
   border: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
 }
 .prose pre code {
   color: inherit;

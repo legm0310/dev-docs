@@ -1,6 +1,6 @@
 ---
 title: 가이드
-order: 1
+groupOrder: 4
 ---
 
 # ZK 투표 가이드

@@ -20,6 +20,15 @@ function readFrontmatter(filePath: string): { title: string; order: number } {
   };
 }
 
+function readGroupFrontmatter(filePath: string): { title: string; order: number } {
+  const content = fs.readFileSync(filePath, "utf-8");
+  const { data } = matter(content);
+  return {
+    title: data.title || path.basename(path.dirname(filePath)),
+    order: data.groupOrder ?? 999,
+  };
+}
+
 function buildTree(dir: string, basePath: string = ""): SidebarItem[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   const items: SidebarItem[] = [];
@@ -31,7 +40,7 @@ function buildTree(dir: string, basePath: string = ""): SidebarItem[] {
       const indexPath = path.join(fullPath, "index.md");
       const hasIndex = fs.existsSync(indexPath);
       const meta = hasIndex
-        ? readFrontmatter(indexPath)
+        ? readGroupFrontmatter(indexPath)
         : { title: entry.name, order: 999 };
 
       const slug = basePath ? `${basePath}/${entry.name}` : entry.name;
@@ -59,7 +68,7 @@ function buildTree(dir: string, basePath: string = ""): SidebarItem[] {
     }
   }
 
-  return items.sort((a, b) => a.order - b.order);
+  return items.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 }
 
 export function getAllBundles(): string[] {
@@ -73,4 +82,17 @@ export function getSidebarTree(bundle: string): SidebarItem[] {
   const bundleDir = path.join(DOCS_DIR, bundle);
   if (!fs.existsSync(bundleDir)) return [];
   return buildTree(bundleDir, bundle);
+}
+
+export function getFirstDocSlug(bundle: string): string | null {
+  const tree = getSidebarTree(bundle);
+  function findFirst(items: SidebarItem[]): string | null {
+    for (const item of items) {
+      if (item.children.length === 0) return item.slug;
+      const found = findFirst(item.children);
+      if (found) return found;
+    }
+    return null;
+  }
+  return findFirst(tree) ?? (tree.length > 0 ? tree[0].slug : null);
 }
