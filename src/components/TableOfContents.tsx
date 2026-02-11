@@ -34,7 +34,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="w-56 shrink-0 hidden xl:block">
+    <nav className="doc-toc w-56 shrink-0 hidden xl:block" aria-label="목차">
       <div className="sticky top-8 overflow-y-auto">
         <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">목차</h4>
         <ul className="space-y-1 max-h-[calc(100vh-10rem)]">
@@ -42,8 +42,8 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
             <li key={heading.id}>
               <a
                 href={`#${heading.id}`}
-                className={`block text-sm py-1 transition-colors ${heading.level === 3 ? 'pl-4' : ''} ${
-                  activeId === heading.id ? 'text-blue-600 font-medium' : 'text-gray-500 hover:text-gray-900'
+                className={`block text-sm py-1 pr-2 transition-colors ${heading.level === 3 ? 'pl-4' : ''} ${
+                  activeId === heading.id ? 'active' : ''
                 }`}
               >
                 {heading.text}

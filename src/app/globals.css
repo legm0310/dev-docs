@@ -59,6 +59,17 @@ body {
   color: #1f2937;
 }
 
+/* 본문 코드 블록(pre): 흐름 개요 등 가독성 */
+.prose pre {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+.prose pre code {
+  color: inherit;
+  background: transparent;
+}
+
 /* GFM table styles */
 .prose table {
   width: 100%;
@@ -104,10 +115,33 @@ body {
   color: #9ca3af;
 }
 
+/* 본문 링크: 영역 호버가 아니라 링크 단위로만 밑줄 */
+.prose a {
+  text-decoration: none;
+}
+.prose a:hover {
+  text-decoration: underline;
+}
+
 /* Image styles */
 .prose img {
   border-radius: 0.5rem;
   margin: 1.5rem 0;
   max-width: 100%;
   height: auto;
+}
+
+/* TOC: 상위(main 등) :hover a 스타일이 목차 링크에 동시 적용되는 것 방지 */
+.doc-toc a {
+  color: #6b7280; /* gray-500 */
+  text-decoration: none;
+}
+.doc-toc a:hover {
+  color: #111827; /* gray-900 */
+  text-decoration: none;
+}
+.doc-toc a.active {
+  color: #2563eb; /* blue-600 */
+  font-weight: 500;
+  text-decoration: none;
 }

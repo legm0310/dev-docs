@@ -8,6 +8,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeFixBold from "./rehype-fix-bold";
 
 const DOCS_DIR = path.join(process.cwd(), "docs");
 
@@ -62,16 +63,20 @@ function resolveFilePath(slug: string[]): string {
 export function getHeadings(markdown: string): Heading[] {
   const headings: Heading[] = [];
   const lines = markdown.split("\n");
+  const idCount = new Map<string, number>();
 
   for (const line of lines) {
     const match = line.match(/^(#{2,3})\s+(.+)$/);
     if (match) {
       const level = match[1].length;
       const text = match[2].trim();
-      const id = text
+      const baseId = text
         .toLowerCase()
         .replace(/[^\w\s가-힣-]/g, "")
         .replace(/\s+/g, "-");
+      const count = idCount.get(baseId) ?? 0;
+      idCount.set(baseId, count + 1);
+      const id = count === 0 ? baseId : `${baseId}-${count}`;
       headings.push({ id, text, level });
     }
   }
@@ -89,6 +94,7 @@ export async function getDocBySlug(slug: string[]): Promise<Doc> {
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
+    .use(rehypeFixBold)
     .use(rehypePrettyCode, { theme: "github-dark" })
     .use(rehypeStringify)
     .process(markdown);
