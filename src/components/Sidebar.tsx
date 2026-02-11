@@ -12,6 +12,7 @@ interface SidebarItem {
 }
 
 function SidebarGroup({ item, currentSlug }: { item: SidebarItem; currentSlug: string }) {
+  item.children = item.children.filter((item: SidebarItem) => item.title !== '마크다운 기능 테스트');
   const isActive = currentSlug === item.slug;
   const isChildActive = item.children.some(
     (child) => currentSlug === child.slug || child.children.some((c) => currentSlug === c.slug),
@@ -33,22 +34,33 @@ function SidebarGroup({ item, currentSlug }: { item: SidebarItem; currentSlug: s
 
   return (
     <div>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full px-3 py-1.5 text-sm font-medium text-gray-900 rounded-md hover:bg-gray-50 transition-colors"
-      >
-        <Link href={`/docs/${item.slug}`} className="flex-1 text-left">
+      <div className="flex items-center justify-between w-full rounded-md hover:bg-gray-50 group">
+        <Link
+          href={`/docs/${item.slug}`}
+          className="flex-1 px-3 py-1.5 text-sm font-medium text-gray-900 text-left"
+        >
           {item.title}
         </Link>
-        <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-90' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }}
+          className="shrink-0 p-1.5 rounded hover:bg-gray-100 transition-colors"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? '접기' : '펼치기'}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+          <svg
+            className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-90' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
       {isOpen && (
         <div className="ml-3 mt-1 border-l border-gray-200 pl-2">
           {item.children.map((child) => (
