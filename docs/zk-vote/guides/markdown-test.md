@@ -1,6 +1,6 @@
 ---
 title: 마크다운 기능 테스트
-order: 3
+order: 4
 ---
 
 # 마크다운 기능 테스트
@@ -35,7 +35,7 @@ _기울임 텍스트 (Italic)_
 
 [Google](https://www.google.com)
 
-[내부 링크 - 시작하기](/docs/zk/getting-started)
+[내부 링크 - 시작하기](/docs/zk-vote/getting-started)
 
 ## 인용문 (Blockquote)
 
