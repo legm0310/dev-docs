@@ -291,7 +291,7 @@ See [Hybrid Accounts](https://doc-wallet.corenet.sbs/broken-reference) for migra
 
 ## Related Documentation
 
-- [Account Comparison](https://doc-wallet.corenet.sbs/broken-reference) - Compare all account types
-- [PQC Accounts](https://doc-wallet.corenet.sbs/broken-reference) - Quantum-resistant accounts
-- [Hybrid Accounts](https://doc-wallet.corenet.sbs/broken-reference) - Combined ECDSA + PQC
-- [When to Use Each Account Type](https://doc-wallet.corenet.sbs/broken-reference) - Decision guide
+- [Account Comparison](/docs/pqc-wallet/05-account-comparison) - Compare all account types
+- [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts) - Quantum-resistant accounts
+- [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts) - Combined ECDSA + PQC
+- [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use) - Decision guide

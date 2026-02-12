@@ -63,8 +63,8 @@ Accounts that combine both ECDSA and PQC cryptography for maximum security and c
 
 ## Next Steps
 
-- Learn about [ECDSA Accounts](./02-ecdsa-accounts.md) for legacy compatibility
-- Learn about [PQC Accounts](./03-pqc-accounts.md) for quantum resistance
-- Learn about [Hybrid Accounts](./04-hybrid-accounts.md) for maximum security
-- See [Account Comparison](./05-account-comparison.md) for detailed specifications
-- Understand [When to Use Each Account Type](./07-when-to-use.md) for decision guidance
+- Learn about [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) for legacy compatibility
+- Learn about [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md) for quantum resistance
+- Learn about [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) for maximum security
+- See [Account Comparison](/docs/pqc-wallet/05-account-comparison.md) for detailed specifications
+- Understand [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use.md) for decision guidance

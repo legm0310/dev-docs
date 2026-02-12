@@ -269,7 +269,7 @@ Hybrid transactions have the highest gas costs:
 
 ## Related Documentation
 
-- [Account Comparison](./05-account-comparison.md) - Compare all account types
-- [ECDSA Accounts](./02-ecdsa-accounts.md) - Legacy compatible accounts
-- [PQC Accounts](./03-pqc-accounts.md) - Quantum-resistant accounts
-- [When to Use Each Account Type](./07-when-to-use.md) - Decision guide
+- [Account Comparison](/docs/pqc-wallet/05-account-comparison.md) - Compare all account types
+- [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) - Legacy compatible accounts
+- [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md) - Quantum-resistant accounts
+- [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use.md) - Decision guide

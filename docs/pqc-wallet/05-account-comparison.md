@@ -209,8 +209,8 @@ Total Signature:    3,374 bytes
 
 ## Related Documentation
 
-- [ECDSA Accounts](./02-ecdsa-accounts.md) - Detailed ECDSA specifications
-- [PQC Accounts](./03-pqc-accounts.md) - Detailed PQC specifications
-- [Hybrid Accounts](./04-hybrid-accounts.md) - Detailed Hybrid specifications
-- [When to Use Each Account Type](./07-when-to-use.md) - Decision guide
-- [Address Formats](./06-address-formats.md) - Address format details
+- [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) - Detailed ECDSA specifications
+- [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md) - Detailed PQC specifications
+- [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) - Detailed Hybrid specifications
+- [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use.md) - Decision guide
+- [Address Formats](/docs/pqc-wallet/06-address-formats.md) - Address format details

@@ -227,12 +227,12 @@ If you need ECDSA compatibility:
 2. **Transfer Funds**: Move funds from PQC to Hybrid account
 3. **Maintain Security**: Hybrid provides both quantum resistance and compatibility
 
-See [Hybrid Accounts](./04-hybrid-accounts.md) for details.
+See [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) for details.
 
 ## Related Documentation
 
-- [Account Comparison](./05-account-comparison.md) - Compare all account types
-- [ECDSA Accounts](./02-ecdsa-accounts.md) - Legacy compatible accounts
-- [Hybrid Accounts](./04-hybrid-accounts.md) - Combined ECDSA + PQC
-- [Address Formats](./06-address-formats.md) - Detailed address format guide
-- [When to Use Each Account Type](./07-when-to-use.md) - Decision guide
+- [Account Comparison](/docs/pqc-wallet/05-account-comparison.md) - Compare all account types
+- [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) - Legacy compatible accounts
+- [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) - Combined ECDSA + PQC
+- [Address Formats](/docs/pqc-wallet/06-address-formats.md) - Detailed address format guide
+- [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use.md) - Decision guide

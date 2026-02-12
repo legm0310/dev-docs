@@ -354,8 +354,8 @@ Do you need quantum resistance?
 
 ## Related Documentation
 
-- [Overview](./01-overview.md) - Account types overview
-- [ECDSA Accounts](./02-ecdsa-accounts.md) - ECDSA details
-- [PQC Accounts](./03-pqc-accounts.md) - PQC details
-- [Hybrid Accounts](./04-hybrid-accounts.md) - Hybrid details
-- [Account Comparison](./05-account-comparison.md) - Detailed comparison
+- [Overview](/docs/pqc-wallet/01-overview.md) - Account types overview
+- [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) - ECDSA details
+- [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md) - PQC details
+- [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) - Hybrid details
+- [Account Comparison](/docs/pqc-wallet/05-account-comparison.md) - Detailed comparison

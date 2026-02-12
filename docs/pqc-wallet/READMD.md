@@ -9,13 +9,13 @@ This GitBook documentation explains the different account types supported by the
 
 ## Table of Contents
 
-1. [Overview](./01-overview.md)
-2. [ECDSA Accounts](./02-ecdsa-accounts.md)
-3. [PQC Accounts](./03-pqc-accounts.md)
-4. [Hybrid Accounts](./04-hybrid-accounts.md)
-5. [Account Comparison](./05-account-comparison.md)
-6. [Address Formats](./06-address-formats.md)
-7. [When to Use Each Account Type](./07-when-to-use.md)
+1. [Overview](/docs/pqc-wallet/01-overview)
+2. [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts)
+3. [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md)
+4. [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md)
+5. [Account Comparison](/docs/pqc-wallet/05-account-comparison.md)
+6. [Address Formats](/docs/pqc-wallet/06-address-formats.md)
+7. [When to Use Each Account Type](/docs/pqc-wallet/07-when-to-use.md)
 
 ## Quick Reference
 
@@ -27,4 +27,4 @@ This GitBook documentation explains the different account types supported by the
 
 ## Getting Started
 
-Start with the [Overview](./01-overview.md) to understand the different account types, then dive into specific account types based on your needs.
+Start with the [Overview](/docs/pqc-wallet/01-overview.md) to understand the different account types, then dive into specific account types based on your needs.

@@ -282,7 +282,7 @@ const bech32m = encodePQCAddress('pqch', 1, address32);
 
 ## Related Documentation
 
-- [ECDSA Accounts](./02-ecdsa-accounts.md) - ECDSA account details
-- [PQC Accounts](./03-pqc-accounts.md) - PQC account details
-- [Hybrid Accounts](./04-hybrid-accounts.md) - Hybrid account details
-- [Account Comparison](./05-account-comparison.md) - Compare all account types
+- [ECDSA Accounts](/docs/pqc-wallet/02-ecdsa-accounts.md) - ECDSA account details
+- [PQC Accounts](/docs/pqc-wallet/03-pqc-accounts.md) - PQC account details
+- [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts.md) - Hybrid account details
+- [Account Comparison](/docs/pqc-wallet/05-account-comparison.md) - Compare all account types
