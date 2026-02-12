@@ -14,8 +14,9 @@ export interface SidebarItem {
 function readFrontmatter(filePath: string): { title: string; order: number } {
   const content = fs.readFileSync(filePath, "utf-8");
   const { data } = matter(content);
+  const base = path.basename(filePath, path.extname(filePath));
   return {
-    title: data.title || path.basename(filePath, ".md"),
+    title: data.title || base,
     order: data.order ?? 999,
   };
 }
@@ -37,10 +38,11 @@ function buildTree(dir: string, basePath: string = ""): SidebarItem[] {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
+      const indexPathMdx = path.join(fullPath, "index.mdx");
       const indexPath = path.join(fullPath, "index.md");
-      const hasIndex = fs.existsSync(indexPath);
-      const meta = hasIndex
-        ? readGroupFrontmatter(indexPath)
+      const indexFile = fs.existsSync(indexPathMdx) ? indexPathMdx : fs.existsSync(indexPath) ? indexPath : null;
+      const meta = indexFile
+        ? readGroupFrontmatter(indexFile)
         : { title: entry.name, order: 999 };
 
       const slug = basePath ? `${basePath}/${entry.name}` : entry.name;
@@ -54,8 +56,9 @@ function buildTree(dir: string, basePath: string = ""): SidebarItem[] {
         order: meta.order,
         children,
       });
-    } else if (entry.name.endsWith(".md") && entry.name !== "index.md") {
-      const name = entry.name.replace(/\.md$/, "");
+    } else if (entry.isFile() && (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) && entry.name !== "index.md" && entry.name !== "index.mdx") {
+      const name = entry.name.replace(/\.(md|mdx)$/, "");
+      if (entry.name.endsWith(".md") && fs.existsSync(path.join(dir, `${name}.mdx`))) continue;
       const meta = readFrontmatter(fullPath);
       const slug = basePath ? `${basePath}/${name}` : name;
 

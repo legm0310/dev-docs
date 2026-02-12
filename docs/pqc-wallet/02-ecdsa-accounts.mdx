@@ -75,73 +75,47 @@ Mixed case provides error detection for typos.
 
 ### ✅ Use ECDSA When:
 
-{% stepper %}
-{% step %}
-
-### Maximum Compatibility Required
-
-- Interacting with existing Ethereum dApps
-- Using standard Ethereum tools (MetaMask, Remix, etc.)
-- Deploying to Ethereum mainnet or testnets
-  {% endstep %}
-
-{% step %}
-
-### Classical Security is Sufficient
-
-- Short-term transactions
-- Low-value operations
-- When quantum threat is not immediate concern
-  {% endstep %}
-
-{% step %}
-
-### Gas Cost Optimization
-
-- ECDSA signatures are smallest (65 bytes)
-- Lowest gas costs for transactions
-- Efficient for high-frequency operations
-  {% endstep %}
-
-{% step %}
-
-### Existing Infrastructure
-
-- Migrating existing Ethereum accounts
-- Using existing smart contracts
-- Maintaining backward compatibility
-  {% endstep %}
-  {% endstepper %}
+<Stepper>
+  <Step title="Maximum Compatibility Required">
+    - Interacting with existing Ethereum dApps
+    - Using standard Ethereum tools (MetaMask, Remix, etc.)
+    - Deploying to Ethereum mainnet or testnets
+  </Step>
+  <Step title="Classical Security is Sufficient">
+    - Short-term transactions
+    - Low-value operations
+    - When quantum threat is not immediate concern
+  </Step>
+  <Step title="Gas Cost Optimization">
+    - ECDSA signatures are smallest (65 bytes)
+    - Lowest gas costs for transactions
+    - Efficient for high-frequency operations
+  </Step>
+  <Step title="Existing Infrastructure">
+    - Migrating existing Ethereum accounts
+    - Using existing smart contracts
+    - Maintaining backward compatibility
+  </Step>
+</Stepper>
 
 ### ❌ Don't Use ECDSA When:
 
-{% stepper %}
-{% step %}
-
-### Long-Term Security Required
-
-- Storing high-value assets long-term
-- Planning for quantum computing era
-- Need quantum-resistant cryptography
-  {% endstep %}
-
-{% step %}
-
-### PQC-Only Networks
-
-- Networks that require PQC signatures
-- Networks that don't support ECDSA
-  {% endstep %}
-
-{% step %}
-
-### Maximum Security Needed
-
-- Defense against both classical and quantum attacks
-- Critical infrastructure
-- Regulatory compliance requiring quantum resistance
-  {% endstep %}
-  {% endstepper %}
+<Stepper>
+  <Step title="Long-Term Security Required">
+    - Storing high-value assets long-term
+    - Planning for quantum computing era
+    - Need quantum-resistant cryptography
+  </Step>
+  <Step title="PQC-Only Networks">
+    - Networks that require PQC signatures
+    - Networks that don't support ECDSA
+  </Step>
+  <Step title="Maximum Security Needed">
+    - Defense against both classical and quantum attacks
+    - Critical infrastructure
+    - Regulatory compliance requiring quantum resistance
+  </Step>
+</Stepper>
 
 ## Security Considerations
 
@@ -159,63 +133,48 @@ Mixed case provides error detection for typos.
 
 ### Best Practices
 
-{% stepper %}
-{% step %}
-
-### Use Strong Randomness
-
-Ensure private keys are generated with cryptographically secure random number generators
-{% endstep %}
-
-{% step %}
-
-### Secure Storage
-
-Encrypt private keys with strong passwords
-{% endstep %}
-
-{% step %}
-
-### Never Share Private Keys
-
-Private keys should never be transmitted or stored insecurely
-{% endstep %}
-
-{% step %}
-
-### Regular Backups
-
-Maintain secure backups of private keys and recovery phrases
-{% endstep %}
-{% endstepper %}
+<Stepper>
+  <Step title="Use Strong Randomness">
+    Ensure private keys are generated with cryptographically secure random number generators
+  </Step>
+  <Step title="Secure Storage">
+    Encrypt private keys with strong passwords
+  </Step>
+  <Step title="Never Share Private Keys">
+    Private keys should never be transmitted or stored insecurely
+  </Step>
+  <Step title="Regular Backups">
+    Maintain secure backups of private keys and recovery phrases
+  </Step>
+</Stepper>
 
 ## Account Creation
 
 ### From Random Generation
 
-{% code title="Example" %}
+<CodeBlock title="Example">
 
 ```javascript
 // Create new ECDSA account
 const account = await createECDSAAccount(password);
 ```
 
-{% endcode %}
+</CodeBlock>
 
 ### From Mnemonic
 
-{% code title="Example" %}
+<CodeBlock title="Example">
 
 ```javascript
 // Derive ECDSA account from mnemonic
 const account = await createECDSAAccountFromMnemonic();
 ```
 
-{% endcode %}
+</CodeBlock>
 
 ### From Private Key Import
 
-{% code title="Example" %}
+<CodeBlock title="Example">
 
 ```javascript
 // Import existing ECDSA account
@@ -223,7 +182,7 @@ const privateKey = '0x1234...'; // 64 hex characters
 const account = await importECDSAAccount(privateKey, password);
 ```
 
-{% endcode %}
+</CodeBlock>
 
 ## Transaction Signing
 
@@ -237,57 +196,35 @@ All transaction types use 65-byte ECDSA signatures.
 
 ## Limitations
 
-{% stepper %}
-{% step %}
-
-### No Quantum Resistance
-
-Vulnerable to future quantum attacks
-{% endstep %}
-
-{% step %}
-
-### Fixed Security Level
-
-Cannot be upgraded without creating new account
-{% endstep %}
-
-{% step %}
-
-### Signature Malleability
-
-ECDSA signatures can be modified (mitigated by EIP-155)
-{% endstep %}
-{% endstepper %}
+<Stepper>
+  <Step title="No Quantum Resistance">
+    Vulnerable to future quantum attacks
+  </Step>
+  <Step title="Fixed Security Level">
+    Cannot be upgraded without creating new account
+  </Step>
+  <Step title="Signature Malleability">
+    ECDSA signatures can be modified (mitigated by EIP-155)
+  </Step>
+</Stepper>
 
 ## Migration Path
 
 If you need quantum resistance later:
 
-{% stepper %}
-{% step %}
+<Stepper>
+  <Step title="Create Hybrid Account">
+    Generate new Hybrid account with both ECDSA and PQC keys
+  </Step>
+  <Step title="Transfer Funds">
+    Move funds from ECDSA to Hybrid account
+  </Step>
+  <Step title="Update References">
+    Update any dApps or contracts referencing your address
+  </Step>
+</Stepper>
 
-### Create Hybrid Account
-
-Generate new Hybrid account with both ECDSA and PQC keys
-{% endstep %}
-
-{% step %}
-
-### Transfer Funds
-
-Move funds from ECDSA to Hybrid account
-{% endstep %}
-
-{% step %}
-
-### Update References
-
-Update any dApps or contracts referencing your address
-{% endstep %}
-{% endstepper %}
-
-See [Hybrid Accounts](https://doc-wallet.corenet.sbs/broken-reference) for migration details.
+See [Hybrid Accounts](/docs/pqc-wallet/04-hybrid-accounts) for migration details.
 
 ## Related Documentation
 

@@ -59,6 +59,11 @@ body {
   color: #1f2937;
 }
 
+/* H1: 기본이 너무 굵어서 완화 */
+.prose h1 {
+  font-weight: 700;
+}
+
 /* 본문 코드 블록(pre): 흐름 개요 등 가독성 */
 .prose pre {
   background-color: #f3f4f6;
@@ -145,4 +150,97 @@ body {
   color: #2563eb; /* blue-600 */
   font-weight: 500;
   text-decoration: none;
+}
+
+/* Stepper: {% stepper %} / {% step %} */
+.doc-stepper {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: doc-step;
+}
+
+.doc-step {
+  position: relative;
+  counter-increment: doc-step;
+  padding-left: 3.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.doc-step:last-child {
+  padding-bottom: 0;
+}
+
+.doc-step::before {
+  content: counter(doc-step);
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3b82f6;
+  background-color: #eff6ff;
+  border: 2px solid #3b82f6;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.doc-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0.8125rem;
+  top: 2rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background-color: #e5e7eb;
+}
+
+.doc-step-content {
+  margin: 0;
+  padding-left: 0.25rem;
+}
+
+.doc-step-content :first-child {
+  margin-top: 0;
+}
+
+.doc-step-content :last-child {
+  margin-bottom: 0;
+}
+
+/* Code block with title: {% code title="..." %} */
+.doc-code-block {
+  margin: 1.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #f9fafb;
+}
+
+.doc-code-title {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.doc-code-content {
+  padding: 0;
+}
+
+.doc-code-content pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.doc-code-content pre code {
+  border-radius: 0 !important;
 }
